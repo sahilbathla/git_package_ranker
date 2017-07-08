@@ -30,9 +30,14 @@ var repositories = {
 	importRep: function importRep (button) {
 		var id = $(button).data('id'),
 			name = $(button).data('name');
+			$(button).attr('disabled', true);
 		$.post('/repositories/import', { 'rid': id, 'name': name }, function( data ) {
-			$(button).text('Imported').attr('disabled', true);
-			$('#import-msg').text(data.msg);
+			if (data.err) {
+				$('#import-msg').text(data.err);
+				$(button).text('Import Error');
+			} else {
+				$(button).text('Imported');
+			}
 			setTimeout(function() {
 				$('#import-msg').text('');
 			}, 2000);
