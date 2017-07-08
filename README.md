@@ -16,6 +16,8 @@ https://redis.io/topics/quickstart
 
 * `rails s` to start the server or open any other port by giving -p option.
 
+* start redis server - `service redis-server start` #Currently only supports local redis
+
 * Open http://localhost:3000
 
 * To run unit test cases run rake tests:run
