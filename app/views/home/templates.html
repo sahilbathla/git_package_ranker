@@ -1,0 +1,13 @@
+<script id="search-result-template" type="text/html">
+	<li>
+		<span class='margin-half'>Repository: {{ name }}</span>
+		<span class='margin-half'>Forks: {{ forks }}</span>
+		<span class='margin-half'>Stars: {{ stars }}</span>
+		{{#imported}}
+			<button disabled="disabled">Already Imported</button>
+		{{/imported}}
+		{{^imported}}
+			<button onClick="repositories.importRep(this)" data-id="{{id}}" data-name="{{name}}">Import</button>
+		{{/imported}}
+	</li>
+</script>

@@ -1,0 +1,11 @@
+<h1>Top Packages</h1>
+<a href="/"><button>Home</button></a>
+<% if @top_packages.length == 0 %>
+	<p> No Package Imported Yet !!! </p>
+<% end %>
+<% @top_packages.each do |package| %>
+	<div>
+		<span>Name: <%= package.name %></span>
+		<span>Score: <%= package.score %></span>
+	</div>
+<% end %>
