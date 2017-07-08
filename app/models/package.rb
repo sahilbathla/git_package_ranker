@@ -8,7 +8,7 @@ class Package < ActiveRecord::Base
 				begin
 					#This can be optimized by separating inserts from updates and doing bulk operation or using upserts in DB like postgres
 					package_content['dependencies'].each do | dependency, _version |
-						p = Package.find_or_initialize_by(name: dependency)
+						p = Package.find_or_initialize_by(name: dependency.strip.downcase)
 						p.score += 1
 						p.save
 					end
